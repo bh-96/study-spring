@@ -2,6 +2,8 @@ package com.bh.study.codility;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.*;
+
 public class Lesson2_Arrays {
 
     @Test
@@ -10,8 +12,8 @@ public class Lesson2_Arrays {
         int K = 0;
         int[] answer = solution(A, K);
 
-        for (int i = 0; i < answer.length; i++) {
-            System.out.print(answer[i]);
+        for (int n : answer) {
+            System.out.print(n);
         }
     }
 
@@ -48,6 +50,36 @@ public class Lesson2_Arrays {
 
     @Test
     public void test2_OddOccurrencesInArray() {
+        int[] A = {9, 3, 9, 3, 9, 7, 9};
+        System.out.println(solution2(A));
+    }
 
+    public int solution2(int[] A) {
+        // write your code in Java SE 8
+        int N = A.length;
+
+        if (N == 1) {
+            return A[0];
+        }
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int n : A) {
+            if (map.containsKey(n)) {
+                int cnt = map.get(n) + 1;
+                map.put(n, cnt);
+            } else {
+                map.put(n, 1);
+            }
+        }
+
+        for (int n : map.keySet()) {
+            int cnt = map.get(n);
+            if (cnt % 2 == 1) {
+                return n;
+            }
+        }
+
+        return 0;
     }
 }

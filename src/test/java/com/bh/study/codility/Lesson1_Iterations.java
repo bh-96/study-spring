@@ -7,7 +7,7 @@ import java.util.*;
 public class Lesson1_Iterations {
 
     @Test
-    public void test() {
+    public void test_binaryGap() {
         System.out.println(solution(32));
     }
 
